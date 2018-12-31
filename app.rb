@@ -32,6 +32,22 @@ class App < Sinatra::Base
     Project.all.to_json
   end
 
+  post '/projects' do
+    Project.create JSON.parse(request.body.read)
+  end
+
+  get '/project/:id' do
+    Project.find(params[:id]).to_json
+  end
+
+  put '/project/:id' do
+    Project.update params[:id], JSON.parse(request.body.read)
+  end
+
+  delete '/project/:id' do
+    Project.destroy(params[:id])
+  end
+
   get '/' do
     routes = []
     self.class.routes["GET"].each do |route|
