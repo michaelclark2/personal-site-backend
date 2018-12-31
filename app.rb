@@ -22,7 +22,7 @@ class App < Sinatra::Base
   end
 
   post '/blogs' do
-    Blog.create JSON.parse(request.body.read)
+    Blog.create request.params
   end
 
   get '/blog/:id' do
@@ -37,6 +37,9 @@ class App < Sinatra::Base
     Blog.destroy(params[:id])
   end
 
+  get '/new/blog' do
+    erb :add_blog
+  end
   get '/projects' do
     Project.all.to_json
   end
