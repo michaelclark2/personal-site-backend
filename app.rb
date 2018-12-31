@@ -12,6 +12,22 @@ class App < Sinatra::Base
     Blog.all.to_json
   end
 
+  post '/blogs' do
+    Blog.create JSON.parse(request.body.read)
+  end
+
+  get '/blog/:id' do
+    Blog.find(params[:id]).to_json
+  end
+
+  put '/blog/:id' do
+    Blog.update params[:id], JSON.parse(request.body.read)
+  end
+
+  delete '/blog/:id' do
+    Blog.destroy(params[:id])
+  end
+
   get '/projects' do
     Project.all.to_json
   end
