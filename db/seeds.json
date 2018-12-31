@@ -1,0 +1,125 @@
+{
+  "blogs" : [
+    {
+      "created_at" : "2018-09-10T15:31:31",
+      "body" : "So I'm finally playing around with real software development.  The applications of C# and the .NET framework are so incredibly vast, I feel as if I'm standing in the middle of a valley, and each direction will lead upwards.  There's so much to keep track of and to remember to include.  C# is very, very different from JavaScript.  The biggest challenge and difference is that JavaScript is dynamically typed, C# is statically typed.  This means I need to know what type of data is stored in each variable, but it also means I can define what a type actually is.  Type conversion is definitely something I need to work on.  Figuring out when I need a double versus a float, or when I need a string or a char, is just something I'm going to have to get used to.  C# is really really awesome though and I can't wait to see what it can really do.  We will be building our own APIs and other applications very soon so maybe it will click by then.",
+      "title" : "C#/.Net is a wonderful thing"
+    },
+    {
+      "created_at" : "2018-12-29T22:35:23",
+      "body" : "MVC is commonplace in the web development world.  It is practically inescapable.  At first, my junior dev brain struggled to accept the reality of MVC, but now I can't think away from it.\r\n\r\nMVC stands for Model, View, and Controller.  It is a way that data can be manipulated with the web.  It begins to make more sense when you break down each component of MVC, and how they interact with each other.\r\n\r\nThe Model\r\n\r\nThe model is basically the way that the data looks.  For instance, if you are going to build a model car, you would probably pick a color, a make, and a model of car.  Each of those properties make up your data model.  So a Car Model would probably look something like this \r\n<pre>\r\npublic class Car \r\n{\r\n    public string Color { get; set; }\r\n    public string Make { get; set; }\r\n    public string Model { get; set; }\r\n}\r\n</pre>\r\n\r\nThe Controller\r\n\r\nThe controller is basically the actions being done to the data.  So anything involving getting, updating, and deleting will happen in the controller.  It then takes the Model, which is the shape of the data, uses it to read and create data, which the controller then sends to the views.  The controllers are the intermediaries of the data.  They get the data from one source, do something to it, and then deliver it to view.\r\n\r\nThe View\r\n\r\nThe view is simply where the data is displayed.  This is where the backend enters the frontend.  Anything involving HTML and CSS will be the view.  A view is the very last step in the trek data travels from database to browser, and fits all the pieces together.  The shape of the data (Model), is filled in with data (Controller), and then is displayed on the browser (View)",
+      "title" : "What MVC means to me"
+    },
+    {
+      "created_at" : "2018-02-27T06:00:00.000Z",
+      "body" : "Git and GitHub felt completely alien to me until about a week ago.  Now I can't believe I've tried to code without it.  Git and GitHub is probably the best thing that has happened to the programming world since sliced bread.  I'm very intrigued by the way that Git saves a state of each file added into it and can compare the differences between a previous version.  I'd like to know more about how Git takes a snapshot of the files in a directory. The command line is another area of programming that is a relatively new concept to me but I'm becoming addicted to how fast it is to do mundane tasks that are unnecessarily complicated with a GUI.  I've follow recipes online to set up webservers and how to install Linux, but I never really understood what the commands I was putting into my machine were actually doing.  I'm excited to learn how powerful the command line can actually be.",
+      "title" : "git init"
+    },
+    {
+      "created_at" : "2018-05-15T05:00:00.000Z",
+      "body" : "jQuery is the best!  It allows for extremely simple and semantic DOM manipulation and includes a bunch of methods and funtionality that significantly reduces the amount of code I have to write.  What once took me almost 50 characters, can now be done in 1 line.  That alone is enough for me to love jQuery.  My favorite part of jQuery is the fact it basically uses CSS selectors to find elements in the DOM, which is how it should be in my amatuer opinion.  There is a good reason that jQuery is used on literally 96% of all websites on the internet.  I'm looking forward to using jQuery, and would like to experiment with some plugins to increase its effectiveness.",
+      "title" : "$('.thank-god-for-jQuery');"
+    },
+    {
+      "created_at" : "2018-05-22T05:00:00.000Z",
+      "body" : "Promises are a very new concept to me, and I sincerely struggled implementing them into my codebase.  Once I started really using them successfully, I realized the benefit they have over the 'normal' way of doing things.  Promises allow for much more readable code and reduce the amount of functions I need to write.  It eliminates creating several 'onSuccess' functions in my AJAX callbacks and I can just make anonymous functions that can manipulate my data at will.  Another really cool feature that made me fall in love with Promises is the fact that you can return values from them.  Normal callbacks cannot return values from the callback function, but Promises allow me to make an AJAX call, and then return the result into a variable and still remain in the scope.  I will need to keep using Promises to fully understand the ins and outs, but so far they have been a tremendous help and have pushed my understanding of JavaScript and asynchronous programming.",
+      "title" : "return new Promise((resolveDifferences, rejectChange) => {"
+    },
+    {
+      "created_at" : "2018-05-26T05:00:00.000Z",
+      "body" : "API's are the bread and butter of programming, and learning how to access and use them is like the knife.  An excellent resource that we touched on is using an application called Postman to do test calls to an API.  Before this class I was writing little test projects in order to test the data that returns when I called an API, but Postman does all the dirty work for you, and you can save your searches very easily!  The trick to using APIs is that each one is different and each one displays the data differently.  There is no general use case for every API so it is very important to do a lot of research reading the documentation on how to use them.  If you don't, you will be eternally lost pulling your hair out because you didn't know that with one little query added to the url could give you the data that you need.  Another very important piece of APIs is that most come with an API key that is registered to you and you alone.  The API key should be protected and should not be visible on your public repo posted on GitHub, this is a huge no-no and will be frowned upon by future employers.  Putting your private keys in a public repo is a huge security risk and can be a very expensive mistake if you are charged for each call to the API.  Remembering this fact is the most important lesson I learned this week.",
+      "title" : "http://accessingapis.com/endpoint/?useful=true"
+    },
+    {
+      "created_at" : "2018-06-05T05:00:00.000Z",
+      "body" : "This post was brought to you by Firebase, a Google service that mimics running a backend.  It is an extremely easy and simple way to mock a server in a sinch, but not intended for professional and enterprise use.  But I am beyond excited to finally be working with databases!  This is where the real magic happens and the potential for creating really interesting projects is abundant.  The main reason I am attending this bootcamp is to learn how the back-end even operates, and I'm learning and doing a lot.  The main thing I need to practice is structuring my data properly.  There are a few guidelines they have instructed us, with the rule of no nested data types should be present.  There should only be an object of objects with no nested array or other objects inside.  This makes it easier to access the data needed and keeps weird bugs from happening.  Learning CRUD is another huge thing I need to work on.  CRUD is creating, reading, updating, and deleting from databases and is the essential way of working with the back-end.  I'm really excited to start hosting this site via Firebase.  I'm about to buy a domain in my name soon, so then you will all see these there, instead of hosted on GitHub.",
+      "title" : "firebase.initializeApp(theFunBegins);"
+    },
+    {
+      "created_at" : "2018-06-12T05:00:00.000Z",
+      "body" : "Firebase is a pretty impressive tool and makes authentication extremely easy to set up.  I was actually surprised how easy it really is, Firebase comes packed with a lot of methods that handle interacting with my database and it makes authentication as easy as binding snippets to an event listener.  I do know that this is not how authentication works, it's just Firebase's idea of how authentication works, so I'm excited to learn the backend way of doing things.  I think the hardest part about making a site with authentication is just setting up the views, but that is only because we had to backtrack our projects to include authentication.  The instructor says that it's much more organic and easier to include authentication in the beginning, if you plan to use authentication.  I've been envisioning on ways to include authentication in my capstone project.  I can't believe we are almost to the back-end!  It's been quite a year, but I'm already starting to tell that attending NSS was probably one of the best ideas I've ever had.",
+      "title" : "firebase.auth().onAuthStateChanged(user => {"
+    },
+    {
+      "created_at" : "2018-06-24T05:00:00.000Z",
+      "body" : "Sass is changing the way that I think about CSS.  It allows me to use variables and functions and offers a way to compartmentalize my code.  The variables are my favorite part though.  I can set a couple variables to use throughout my project, colors for example, and then add them to components.  If I ever need to change the color of a bunch of elements on the page, I now only need to change one variable, rather than all instances of the color.  Sass almost makes me want to abandon front-end frameworks and write my own styling, as now its immensely easier to implement styles across many different elements and components.  Plus, if I get really good at Sass, I can tell people that I'm the Sass Master.  That is enough to keep me motivated to learn more about it.",
+      "title" : "$sass : lighten($theLoad);"
+    },
+    {
+      "created_at" : "2018-07-03T05:00:00.000Z",
+      "body" : "React is absolutely amazing.  It takes everything we've been doing for the last 5 months and condenses them into a well manageable structure.  It combines all the domString functions, the event listeners and printing the page to the DOM.  It makes front-end development actually fun again!  React is awesome because it forces you to break your webpage down into seperate components.  Each of those components will have access to data that will populate the page before it even renders.  At first React seemed really scary, but once you found out the pattern it becomes much easier than writing 10 functions just to print data onto the page.  I can tell React is going to save me a lot of time and trouble, and will make me much more productive and efficient.  The thing that I have trouble with the most is defining the state of each component.  The state is sort of like the current values or instances that appear on the page at any given time.  I will need to play around with React a lot more to get the pattern recognition down, but I'm looking forward to using this framework.",
+      "title" : "import React from 'react';"
+    },
+    {
+      "created_at" : "2018-07-14T05:00:00.000Z",
+      "body" : "The more I fiddle with React, the more I fall in love with it.  After learning how routing works, React has changed the way I approach my projects.  It will allow me to change views very easily and allows for comprehensive urls that give better context to the user vs having a single page app with only one url.  Another really awesome feature is capturing values from the url.  If you set the route up like the following: <pre><Route path=\"/wherever/:val\" component={App}/></pre>The path on the route includes a /:val, which means when the url reads myapp.com/whatever/thisis, then we have access to /thisis as a prop in the App component that was passed into the route.  We access this value in the App component by finding it in the props.<pre>this.props.match.params.val</pre>If you notice, 'val' is part of the path name originally set up in the Route component.  I learned a lot this week and feel very confident about my capstone, which we get to start cranking out this week!",
+      "title" : "<Route to='/masteringreact' component={repetition}/>"
+    },
+    {
+      "created_at" : "2018-03-06T06:00:00.000Z",
+      "body" : "This week was an emotional rollercoaster.  Just as I thought I was doing good, everything I had done was completely and utterly wrong.  I probably deleted my entire code at least twice for each challenge.  But when I was taking apart the code and putting it back together piece by piece I started to realize what had been working for me.  I started to use what had worked in the previous challenges and apply them to the next challenges and realized that I was developing a work pattern.  Working in teams to do these challenges aided me, as I got to see how others in my team had approached the same problem and how they reached the same solution.  Seeing their code, and what worked for them, helped my patch up the parts of my code that were lacking in efficiency.",
+      "title" : "for (var iteration = 0; iteration < NSS.length; loopKnowledge++){"
+    },
+    {
+      "created_at" : "2018-03-14T05:00:00.000Z",
+      "body" : "After struggling for hours to try and prevent myself from using advanced JavaScript array methods, we are finally shown how all of our code could be written in two or less functions.  It was excellent seeing other groups present their solution to the same challenges me and my group faced, and we learned how there are many ways to do the same things, but some are much easier than others.  Working in teams is going to be very interesting and I'm looking forward to doing more group projects in the future.",
+      "title" : "arrays.forEach(learnMore);"
+    },
+    {
+      "created_at" : "2018-03-21T05:00:00.000Z",
+      "body" : "Moments after being shown how ES6 works, I looked at my previous work with disgust.  It also opened many doors to solve the problems I had been facing in some of the exercises I've been doing. Most notably and increasingly my favorite feature is the spread operator: <pre>...</pre> It can be used to pass an entire array as arguments in a function like so, <pre>Math.max(...arrayOfNums);</pre> I have found it also extremely useful in converting HTML Collections into Arrays in order to access array methods to add event listeners and the like.  <pre>const HTMLArray = [...document.getElementsByClassName('something')];</pre> The arrow functions are also very, very useful.  Especially when writing anonymous functions in callbacks or array methods: <pre>array.map(element => element * 2);</pre>  I am excited to learn more about ES6 and even the newer features of JavaScript I have yet to be exposed to!",
+      "title" : "let ES6 = (easier) => { easier.toCode };"
+    },
+    {
+      "created_at" : "2018-03-30T05:00:00.000Z",
+      "body" : "Before I started attending Nashville Software School, XHR and AJAX in JavaScript was this big scary place that I didn't feel comfortable exploring. I had tried every beginner JavaScript course you could think of and I always got lost when the XHR concept was brought about.  I believe it had to do with the confusing syntax and methods that were used in the tutorials that confused me.  The way the instructors at NSS showed me is a much more effecient and readable solution that I had never thought possible.  You can simply add a 'load' event listener on your XHR that will handle the response from the server.  You could even step that up and create a function that sets up a boilerplate XHR, and take a function as the input to apply to the 'load' event listener, ie: <br><pre>const runXHR = (executeOnLoad, source) => {<br>let xhr = new XMLHttpRequest();<br>xhr.addEventListener('load', executeOnLoad);<br>xhr.addEventListener('error', executeOnError);<br>xhr.open('GET', source);<br>xhr.send();<br>}</pre><br> That way, you can just reuse the XHR for other sources of data that you want to do different functions with.  I'm excited to start using XHRs to interact with databases.",
+      "title" : "xhr.open(\"GET\", \"ready-for-backend.json\");"
+    },
+    {
+      "created_at" : "2018-04-08T05:00:00.000Z",
+      "body" : "So all this time I've been spending writing CSS just to get stuff centered and to create basic webpage components like navbars and buttons could have been spent in the functionality of the webpage.  Thank you, Bootstrap, for allowing me to focus on the important things.  It is tough to get used to the 12 grid system, but the documentation for it is so good it seems like everything is going to look perfect. That is, until you plunk it into your codebase and then things get all kinds of screwy because you missed a <pre>div.row</pre>.  I also learned that you can't just put everything in one <pre>.row</pre>.  You should definitely use only up to 12 columns in each row or you're gonna have a bad time.  I'm going to read into the differences between Bootstrap 3.3 and 4 because I heard it uses flex-box, which is much more versatile and semantic than the grid system, in my amateur opinion.",
+      "title" : "<link rel='stylesheet' src='bootstrap.css'>"
+    },
+    {
+      "created_at" : "2018-04-14T05:00:00.000Z",
+      "body" : "Just when I was feeling comfortable writing programs in one big main.js file, the rug was completely pulled from under me by task runners.  Now I get to spend time configuring the task runner we are using, Grunt, to run eslint and Browserify.  Browserify takes a set of seperate JavaScript files and compiles them into one file, /dist/app.js.  This ensures proper security measures and also allows for modules of JavaScript, which will improve debugging.  I'm liking the idea of having all of my seperate functions and other functionality in its own file, that way when something goes wrong, I know exactly where to look and I don't have to sort through an entire file full of functions.  Eslint is basically a style guide for JavaScript files.  Once the style book is provided via the .eslintrc file, it checks that your JavaScript conforms to these rules.  In order to even compile all the JavaScripts, they must all pass this style guide or it won't even run whatsoever.  I'm looking forward to exploring more about task runners and what they can do, as well as practicing writing code in modules.",
+      "title" : "const browserify = require('./modularJavaScript');"
+    },
+    {
+      "created_at" : "2018-04-23T05:00:00.000Z",
+      "body" : "Browserify and modular programming is really difficult to wrap my head around.  A couple weeks ago, we were doing all of our programming in one file and it was exponentially easier to plan.  But now that each bit of functionality is included in its own file it becomes another thing that needs to be planned.  Planning my code is something that I am definitely working on.  I am especially trying to improve my whiteboard sessions and making my tickets readable to others.  I'm confident that the more I plan coding projects like these as they get more and more complex I will improve my communication and planning skills.",
+      "title" : "module.exports = planningAhead;"
+    },
+    {
+      "created_at" : "2018-05-01T05:00:00.000Z",
+      "body" : "Now that everything is modular, coding in groups is so much easier.  I've seen a lot less conflicts than my previous group project (I'm also in a better group) and this group project made me fall in love with modular programming.  Instead of combing through an entire main.js file, it was much easier to merge conflicts when they only existed in one file or in several files that are less than 100 lines.  Unfortunately my participation in this project was interrupted by a family emergency, so I was not as involved as I wish I could have been, but I still learned a lot.",
+      "title" : "git merge master"
+    }
+  ],
+  "projects" : [
+    {
+      "desc" : "A simple game built with JavaScript and jQuery.  Your smart home has come alive and evil, and it's up to you to defeat all of your household appliances! The player has to fight off 6 opponents in order to reach the final boss, all randomly generated each playthrough.  Includes weapons and weapon drops, and the ability to heal.  Originally an extra credit assignment, but turned into a personal project.",
+      "github" : "https://github.com/michaelclark2/robo-battledome",
+      "techs" : "JavaScript, jQuery, Bootstrap",
+      "thumbnail" : "https://cdn2.f-cdn.com/contestentries/953773/18622767/58a5cfd878e0a_thumb900.jpg",
+      "title" : "Smart Home Survival",
+      "url" : "https://smarthome.michaelclark.co"
+    },
+    {
+      "desc" : "It's Trello, but reverse engineered.  Users can create boards, columns, and cards.  Users can drag and drop cards into other columns.  I built this to understand complex data structures and advanced DOM manipulation using React.  Includes multiple plugins to integrate a drag and drop feature into React.",
+      "github" : "https://github.com/michaelclark2/react-ollert",
+      "techs" : "JavaScript, React, Sass, Firebase, Bootstrap",
+      "thumbnail" : "https://3.imimg.com/data3/XK/AU/MY-2619877/colorful-sticky-notes-500x500.jpg",
+      "title" : "Ollert",
+      "url" : "https://ollert.michaelclark.co"
+    },
+    {
+      "desc" : "This project was an attempt to reduce lobbyist influence in congress.  The user can vote and comment on current bills, as well as view more info on the bill and the congressman that sponsors it. The user can compare their votes with the members that represent their congressional district, as well as see official statements on bills from said officials.",
+      "github" : "https://github.com/michaelclark2/constituency",
+      "techs" : "JavaScript, React, Sass, Firebase, Bootstrap, REST APIs",
+      "thumbnail" : "https://i0.wp.com/saintpetersblog.com/wp-content/uploads/2017/10/US-Congress-gerrymandering.jpg?w=500",
+      "title" : "Constituency",
+      "url" : "https://constituency.michaelclark.co"
+    }
+  ]
+}
