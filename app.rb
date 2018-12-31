@@ -1,11 +1,20 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/cross_origin'
 require 'json'
 
 current_dir = Dir.pwd
 Dir["#{current_dir}/models/*.rb"].each { |file| require file }
 
 class App < Sinatra::Base
+
+  set :bind, '0.0.0.0'
+  configure do
+    enable :cross_origin
+  end
+  before do
+    response.headers['Access-Control-Allow-Origin'] = '*'
+  end
 
 
   get '/blogs' do
@@ -54,6 +63,13 @@ class App < Sinatra::Base
       routes.push route[0].to_s
     end
     routes.to_json
+  end
+
+  options "*" do
+    response.headers["Allow"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    200
   end
 
 end
