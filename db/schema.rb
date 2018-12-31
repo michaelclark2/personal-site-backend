@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_31_014504) do
+ActiveRecord::Schema.define(version: 2018_12_31_023725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_12_31_014504) do
     t.string "techs"
     t.string "github"
     t.string "url"
+    t.string "thumbnail"
   end
 
 end
