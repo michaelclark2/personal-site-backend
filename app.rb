@@ -2,9 +2,12 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/cross_origin'
 require 'json'
+require 'sendgrid-ruby'
+include SendGrid
 
 current_dir = Dir.pwd
 Dir["#{current_dir}/models/*.rb"].each { |file| require file }
+
 
 class App < Sinatra::Base
 
@@ -16,6 +19,17 @@ class App < Sinatra::Base
     response.headers['Access-Control-Allow-Origin'] = '*'
   end
 
+  post '/email' do
+    email = JSON.parse(request.body.read)
+    from = Email.new(email: email["email"])
+    subject = email["name"] + ": " + email["subject"]
+    to = Email.new(email: 'michael.clark1992@gmail.com')
+    content = Content.new(type: 'text/plain', value: email["message"])
+    mail = Mail.new(from, subject, to, content)
+
+    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+  end
 
   get '/blogs' do
     Blog.all.to_json
