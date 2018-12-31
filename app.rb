@@ -40,12 +40,14 @@ class App < Sinatra::Base
   get '/new/blog' do
     erb :add_blog
   end
+
   get '/projects' do
     Project.all.to_json
   end
 
   post '/projects' do
-    Project.create JSON.parse(request.body.read)
+    Project.create request.params
+    redirect_to '/projects'
   end
 
   get '/project/:id' do
@@ -58,6 +60,10 @@ class App < Sinatra::Base
 
   delete '/project/:id' do
     Project.destroy(params[:id])
+  end
+
+  get '/new/project' do
+    erb :add_project
   end
 
   get '/' do

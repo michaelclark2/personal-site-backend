@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>New Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+    <style>
+      .section {
+        padding: 2em 25em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <h1 class="title is-1">Add a project</h1>
+      <form action="/projects" method="POST">
+        <div class="field">
+          <label class="label">Title</label>
+          <div class="control">
+            <input class="input" type="text" name="title"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">GitHub</label>
+          <div class="control">
+            <input class="input" type="text" name="github"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Deployed URL</label>
+          <div class="control">
+            <input class="input" type="text" name="url"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Image Url</label>
+          <div class="control">
+            <input class="input" type="text" name="thumbnail"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Technology Used</label>
+          <div class="control">
+            <input class="input" type="text" name="techs"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Desc</label>
+          <div class="control">
+            <textarea class="textarea" name="desc"></textarea>
+          </div>
+        </div>
+
+        <input type="submit" value='Submit'/>
+      </form>
+    </div>
+
+  </body>
+</html>
