@@ -54,7 +54,7 @@
           <label class="label">Add New Technology</label>
           <div class="control">
             <input type="text" id="new-tech">
-            <button onclick="clicky(event)">Add</button>
+            <button onclick="addNewTech(event)">Add</button>
           </div>
         </div>
         <div class="field">
@@ -68,7 +68,7 @@
       </form>
     </div>
     <script>
-      const clicky = (e) => {
+      const addNewTech = (e) => {
 
         e.preventDefault();
 
@@ -77,21 +77,26 @@
 
         fetch('/techs', {method: 'POST', body: JSON.stringify({name: input.value})})
           .then((res) => {
-            input.value = "";
-            while (techContainer.firstChild) {
-              techContainer.removeChild(techContainer.firstChild);
-            }
             return res.json();
           })
           .then(techs => {
+
+            // reset and empty techContainer
+            while (techContainer.firstChild) {
+              techContainer.removeChild(techContainer.firstChild);
+            }
+            // update tech options
             techs.forEach(t => {
               const label = document.createElement('label');
-              label.innerHTML = `<input type="checkbox" name="techs${t.id}" value="${t.id}">
+              label.innerHTML = `
+                <input type="checkbox" name="techs${t.id}" value="${t.id}" ${t.name === input.value ? 'checked' : ''}>
                   ${t.name}
                 `;
               label.classList.add('checkbox');
               techContainer.appendChild(label);
             })
+
+            input.value = "";
           })
       }
     </script>
