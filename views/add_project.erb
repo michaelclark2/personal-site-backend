@@ -39,7 +39,12 @@
         <div class="field">
           <label class="label">Technology Used</label>
           <div class="control">
-            <input class="input" type="text" name="techs"/>
+                <% for @tech in @techs %>
+                  <label class="checkbox">
+                    <input type="checkbox" name="techs" value="<%= @tech.id %>">
+                    <%= @tech.name %>
+                  </label>
+                <% end %>
           </div>
         </div>
         <div class="field">

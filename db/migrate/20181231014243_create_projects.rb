@@ -3,7 +3,6 @@ class CreateProjects < ActiveRecord::Migration[5.2]
     create_table :projects do |t|
       t.string :title
       t.text :desc
-      t.string :techs
       t.string :github
       t.string :url
     end

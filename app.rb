@@ -56,11 +56,16 @@ class App < Sinatra::Base
   end
 
   get '/projects' do
-    Project.all.to_json
+    projects = Project.all
+    projects.each do |p|
+      p.techs = p.technos.pluck(:name)
+    end
+    projects.to_json
   end
 
   post '/projects' do
-    Project.create request.params
+    p request.params
+    # Project.create request.params
     redirect_to '/projects'
   end
 
@@ -77,6 +82,7 @@ class App < Sinatra::Base
   end
 
   get '/new/project' do
+    @techs = Techno.all
     erb :add_project
   end
 
