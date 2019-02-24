@@ -6,6 +6,9 @@
       .section {
         padding: 2em 25em;
       }
+      .checkbox {
+        margin: .5em;
+      }
     </style>
   </head>
   <body>
@@ -15,48 +18,82 @@
         <div class="field">
           <label class="label">Title</label>
           <div class="control">
-            <input class="input" type="text" name="title"/>
+            <input class="input" type="text" name="title" required/>
           </div>
         </div>
         <div class="field">
           <label class="label">GitHub</label>
           <div class="control">
-            <input class="input" type="text" name="github"/>
+            <input class="input" type="text" name="github" />
           </div>
         </div>
         <div class="field">
           <label class="label">Deployed URL</label>
           <div class="control">
-            <input class="input" type="text" name="url"/>
+            <input class="input" type="text" name="url" />
           </div>
         </div>
         <div class="field">
           <label class="label">Image Url</label>
           <div class="control">
-            <input class="input" type="text" name="thumbnail"/>
+            <input class="input" type="text" name="thumbnail" required/>
           </div>
         </div>
         <div class="field">
           <label class="label">Technology Used</label>
+          <div class="control" id="techs">
+            <% for @tech in @techs %>
+              <label class="checkbox">
+                <input type="checkbox" name="techs<%= @tech.id %>" value="<%= @tech.id %>">
+                <%= @tech.name %>
+              </label>
+            <% end %>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Add New Technology</label>
           <div class="control">
-                <% for @tech in @techs %>
-                  <label class="checkbox">
-                    <input type="checkbox" name="techs<%= @tech.id %>" value="<%= @tech.id %>">
-                    <%= @tech.name %>
-                  </label>
-                <% end %>
+            <input type="text" id="new-tech">
+            <button onclick="clicky(event)">Add</button>
           </div>
         </div>
         <div class="field">
           <label class="label">Desc</label>
           <div class="control">
-            <textarea class="textarea" name="desc"></textarea>
+            <textarea class="textarea" name="desc" required></textarea>
           </div>
         </div>
 
         <input type="submit" value='Submit'/>
       </form>
     </div>
+    <script>
+      const clicky = (e) => {
 
+        e.preventDefault();
+
+        const input = document.getElementById('new-tech');
+        const techContainer = document.getElementById('techs');
+
+        fetch('/techs', {method: 'POST', body: JSON.stringify({name: input.value})})
+          .then((res) => {
+            input.value = "";
+            while (techContainer.firstChild) {
+              techContainer.removeChild(techContainer.firstChild);
+            }
+            return res.json();
+          })
+          .then(techs => {
+            techs.forEach(t => {
+              const label = document.createElement('label');
+              label.innerHTML = `<input type="checkbox" name="techs${t.id}" value="${t.id}">
+                  ${t.name}
+                `;
+              label.classList.add('checkbox');
+              techContainer.appendChild(label);
+            })
+          })
+      }
+    </script>
   </body>
 </html>

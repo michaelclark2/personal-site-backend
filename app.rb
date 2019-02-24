@@ -66,7 +66,7 @@ class App < Sinatra::Base
   post '/projects' do
     project = request.params
     techs = []
-    request.params.keys.select {|k| k.include?('tech')}.each do |tech|
+    request.params.keys.select {|k| k.include?('techs')}.each do |tech|
       techs.push tech.delete('techs').to_i
     end
     p techs
@@ -91,6 +91,11 @@ class App < Sinatra::Base
   get '/new/project' do
     @techs = Techno.all
     erb :add_project
+  end
+
+  post '/techs' do
+    Techno.create JSON.parse(request.body.read)
+    Techno.all.to_json
   end
 
   get '/' do
