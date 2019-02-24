@@ -41,7 +41,7 @@
           <div class="control">
                 <% for @tech in @techs %>
                   <label class="checkbox">
-                    <input type="checkbox" name="techs" value="<%= @tech.id %>">
+                    <input type="checkbox" name="techs<%= @tech.id %>" value="<%= @tech.id %>">
                     <%= @tech.name %>
                   </label>
                 <% end %>

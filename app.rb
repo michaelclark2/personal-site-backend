@@ -64,9 +64,16 @@ class App < Sinatra::Base
   end
 
   post '/projects' do
-    p request.params
-    # Project.create request.params
-    redirect_to '/projects'
+    project = request.params
+    techs = []
+    request.params.keys.select {|k| k.include?('tech')}.each do |tech|
+      techs.push tech.delete('techs').to_i
+    end
+    p techs
+    new_project = Project.create project.reject! {|p| p.include?('tech')}
+    techs.each do |t|
+      new_project.projecttechnos.create(:project_id => new_project.id, :techno_id => t)
+    end
   end
 
   get '/project/:id' do
