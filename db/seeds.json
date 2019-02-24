@@ -100,7 +100,6 @@
     {
       "desc" : "A simple game built with JavaScript and jQuery.  Your smart home has come alive and evil, and it's up to you to defeat all of your household appliances! The player has to fight off 6 opponents in order to reach the final boss, all randomly generated each playthrough.  Includes weapons and weapon drops, and the ability to heal.  Originally an extra credit assignment, but turned into a personal project.",
       "github" : "https://github.com/michaelclark2/robo-battledome",
-      "techs" : "JavaScript, jQuery, Bootstrap",
       "thumbnail" : "https://cdn2.f-cdn.com/contestentries/953773/18622767/58a5cfd878e0a_thumb900.jpg",
       "title" : "Smart Home Survival",
       "url" : "https://smarthome.michaelclark.co"
@@ -108,7 +107,6 @@
     {
       "desc" : "It's Trello, but reverse engineered.  Users can create boards, columns, and cards.  Users can drag and drop cards into other columns.  I built this to understand complex data structures and advanced DOM manipulation using React.  Includes multiple plugins to integrate a drag and drop feature into React.",
       "github" : "https://github.com/michaelclark2/react-ollert",
-      "techs" : "JavaScript, React, Sass, Firebase, Bootstrap",
       "thumbnail" : "https://3.imimg.com/data3/XK/AU/MY-2619877/colorful-sticky-notes-500x500.jpg",
       "title" : "Ollert",
       "url" : "https://ollert.michaelclark.co"
@@ -116,7 +114,6 @@
     {
       "desc" : "This project was an attempt to reduce lobbyist influence in congress.  The user can vote and comment on current bills, as well as view more info on the bill and the congressman that sponsors it. The user can compare their votes with the members that represent their congressional district, as well as see official statements on bills from said officials.",
       "github" : "https://github.com/michaelclark2/constituency",
-      "techs" : "JavaScript, React, Sass, Firebase, Bootstrap, REST APIs",
       "thumbnail" : "https://i0.wp.com/saintpetersblog.com/wp-content/uploads/2017/10/US-Congress-gerrymandering.jpg?w=500",
       "title" : "Constituency",
       "url" : "https://constituency.michaelclark.co"
