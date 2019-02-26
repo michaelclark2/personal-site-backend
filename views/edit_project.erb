@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Edit Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
+    <style>
+      .section {
+        padding: 2em 25em;
+      }
+      .checkbox {
+        margin: .5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section">
+      <h1 class="title is-1">Edit project</h1>
+      <form action="/project/edit/<%= @project.id %>" method="post">
+        <div class="field">
+          <label class="label">Title</label>
+          <div class="control">
+            <input class="input" type="text" name="project[title]" value="<%= @project.title %>" required/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">GitHub</label>
+          <div class="control">
+            <input class="input" type="text" name="project[github]" value="<%= @project.github %>" />
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Deployed URL</label>
+          <div class="control">
+            <input class="input" type="text" name="project[url]" value="<%= @project.url %>"/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Image Url</label>
+          <div class="control">
+            <input class="input" type="text" name="project[thumbnail]" value="<%= @project.thumbnail %>" required/>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Technology Used</label>
+          <div class="control" id="techs">
+            <% for @tech in @techs %>
+              <label class="checkbox">
+                <input type="checkbox" name="project[techno_ids][]" id="<%= @tech.id %>" value="<%= @tech.id %>" <%='checked' if @project.technos.include?(@tech)%>>
+                <%= @tech.name %>
+              </label>
+            <% end %>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Add New Technology</label>
+          <div class="control">
+            <input type="text" id="new-tech">
+            <button onclick="addNewTech(event)">Add</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Description</label>
+          <div class="control">
+            <textarea class="textarea" name="desc" required><%= @project.desc %></textarea>
+          </div>
+        </div>
+
+        <input type="submit" value='Submit'/>
+      </form>
+    </div>
+    <script>
+      const addNewTech = (e) => {
+
+        e.preventDefault();
+
+        const input = document.getElementById('new-tech');
+        const techContainer = document.getElementById('techs');
+
+        if (input.value !== '') {
+
+          fetch('/techs', {method: 'POST', body: JSON.stringify({name: input.value})})
+            .then((res) => {
+              return res.json();
+            })
+            .then(techs => {
+
+              const prevTechs = []
+              // reset and empty techContainer
+              while (techContainer.firstChild) {
+                if (techContainer.firstChild.firstElementChild && techContainer.firstChild.firstElementChild.checked){
+                  prevTechs.push(techContainer.firstChild.firstElementChild.id * 1);
+                }
+                techContainer.removeChild(techContainer.firstChild);
+              }
+
+              // update tech options
+              techs.forEach(t => {
+                const label = document.createElement('label');
+                label.innerHTML = `
+                  <input type="checkbox" id="${t.id}" name="project[techno_ids][]" value="${t.id}" ${t.name === input.value || prevTechs.includes(t.id) ? 'checked' : ''}>
+                    ${t.name}
+                  `;
+                label.classList.add('checkbox');
+                techContainer.appendChild(label);
+              })
+
+              input.value = "";
+            })
+        }
+      }
+    </script>
+  </body>
+</html>
