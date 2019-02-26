@@ -18,25 +18,25 @@
         <div class="field">
           <label class="label">Title</label>
           <div class="control">
-            <input class="input" type="text" name="title" required/>
+            <input class="input" type="text" name="project[title]" required/>
           </div>
         </div>
         <div class="field">
           <label class="label">GitHub</label>
           <div class="control">
-            <input class="input" type="text" name="github" />
+            <input class="input" type="text" name="project[github]" />
           </div>
         </div>
         <div class="field">
           <label class="label">Deployed URL</label>
           <div class="control">
-            <input class="input" type="text" name="url" />
+            <input class="input" type="text" name="project[url]" />
           </div>
         </div>
         <div class="field">
           <label class="label">Image Url</label>
           <div class="control">
-            <input class="input" type="text" name="thumbnail" required/>
+            <input class="input" type="text" name="project[thumbnail]" required/>
           </div>
         </div>
         <div class="field">
@@ -44,7 +44,7 @@
           <div class="control" id="techs">
             <% for @tech in @techs %>
               <label class="checkbox">
-                <input type="checkbox" name="techs<%= @tech.id %>" value="<%= @tech.id %>">
+                <input type="checkbox" id="<%= @tech.id %>" name="project[techno_ids][]" value="<%= @tech.id %>">
                 <%= @tech.name %>
               </label>
             <% end %>
@@ -60,7 +60,7 @@
         <div class="field">
           <label class="label">Description</label>
           <div class="control">
-            <textarea class="textarea" name="desc" required></textarea>
+            <textarea class="textarea" name="project[desc]" required></textarea>
           </div>
         </div>
 
@@ -81,15 +81,19 @@
           })
           .then(techs => {
 
+            const prevTechs = [];
             // reset and empty techContainer
             while (techContainer.firstChild) {
+              if (techContainer.firstChild.firstElementChild && techContainer.firstChild.firstElementChild.checked){
+                prevTechs.push(techContainer.firstChild.firstElementChild.id * 1);
+              }
               techContainer.removeChild(techContainer.firstChild);
             }
             // update tech options
             techs.forEach(t => {
               const label = document.createElement('label');
               label.innerHTML = `
-                <input type="checkbox" name="techs${t.id}" value="${t.id}" ${t.name === input.value ? 'checked' : ''}>
+                <input type="checkbox" id="${t.id}" name="project[techno_ids][]" value="${t.id}" ${t.name === input.value || prevTechs.includes(t.id) ? 'checked' : ''}>
                   ${t.name}
                 `;
               label.classList.add('checkbox');
