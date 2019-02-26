@@ -69,7 +69,6 @@ class App < Sinatra::Base
     request.params.keys.select {|k| k.include?('techs')}.each do |tech|
       techs.push tech.delete('techs').to_i
     end
-    p techs
     new_project = Project.create project.reject! {|p| p.include?('tech')}
     techs.each do |t|
       new_project.projecttechnos.create(:project_id => new_project.id, :techno_id => t)
@@ -80,8 +79,9 @@ class App < Sinatra::Base
     Project.find(params[:id]).to_json
   end
 
-  put '/project/:id' do
-    Project.update params[:id], JSON.parse(request.body.read)
+  post '/project/edit/:id' do
+    @project = Project.find(params[:id])
+    @project.update params[:project]
   end
 
   delete '/project/:id' do
@@ -91,6 +91,12 @@ class App < Sinatra::Base
   get '/new/project' do
     @techs = Techno.all
     erb :add_project
+  end
+
+  get '/edit/project/:id' do
+    @project = Project.find(params[:id])
+    @techs = Techno.all
+    erb :edit_project
   end
 
   post '/techs' do
